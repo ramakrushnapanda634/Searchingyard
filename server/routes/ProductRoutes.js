@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const Product = require("../model/ProductModel");
+const ProductModel = require("../model/ProductModel");
 
 router.get("/", async (req, res) => {
   try {
-    const products = await Product.find();
+    const products = await ProductModel.find();
     res.json(products);
   } catch (error) {
     res.json({ message: error });
@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:productId", async (req, res) => {
   try {
-    const product = await Product.findById(req.params.productId);
+    const product = await ProductModel.findById(req.params.productId);
     res.json(product);
   } catch (error) {
     res.json({ message: error });
@@ -21,7 +21,7 @@ router.get("/:productId", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const product = new Product({
+  const product = new ProductModel({
     name: req.body.name,
     price: req.body.price,
     description: req.body.description,
@@ -35,26 +35,29 @@ router.post("/", async (req, res) => {
     res.json({ message: error });
   }
 });
-
+router.put("/:productId", async (req, res) => {
+  var product = await ProductModel.findById(req.params.id);
+  if (!product) {
+    res.status(201).json({ Scccess: true, Mssage: "Product Not Found" });
+  }
+  product = await ProductModel.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    useFindAndModify: false,
+    runValidators: true,
+  });
+  res.status(200).json({ Scccess: true, product });
+});
 router.delete("/:productId", async (req, res) => {
-  try {
-    const removedProduct = await Product.remove({ _id: req.params.productId });
-    res.json(removedProduct);
-  } catch (error) {
-    res.json({ message: error });
+  const product = await ProductModel.findById(req.params.id);
+  if (!product) {
+    res.status(201).json({ Scccess: true, Mssage: "Product Not Found" });
   }
+  await product.remove();
+  res
+    .status(200)
+    .json({ Scccess: true, Message: "Product Removed Successfully" });
 });
 
-router.patch("/:productId", async (req, res) => {
-  try {
-    const updatedProduct = await Product.updateOne(
-      { _id: req.params.productId },
-      { $set: { name: req.body.name } }
-    );
-    res.json(updatedProduct);
-  } catch (error) {
-    res.json({ message: error });
-  }
-});
+
 
 module.exports = router;

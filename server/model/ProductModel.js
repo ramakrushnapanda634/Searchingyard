@@ -8,5 +8,5 @@ var ProductSchema = new Schema({
   category: { type: String, required: true },
   rating: { type: String, required: true },
 });
-
-module.exports = new model("Product", ProductSchema);
+const ProductModel= new model("Product", ProductSchema);
+module.exports =ProductModel;
