@@ -20,7 +20,7 @@ const ProductPost = () => {
       rating: rating,
     };
     axios
-      .post("http://localhost:8080/api/product", product)
+      .post("https://fruit-app-rama.onrender.com/api/product", product)
       .then((res) => {
         console.log(res);
         if (res.status === 200) {

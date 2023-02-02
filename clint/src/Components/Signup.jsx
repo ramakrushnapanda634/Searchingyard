@@ -8,9 +8,10 @@ function Signup() {
   const [passhow, setPassShow] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = () => {
+    //http://localhost:8080/api/signup
     console.log(email, password);
     axios
-      .post("http://localhost:8080/api/signup", {
+      .post("https://fruit-app-rama.onrender.com/api/signup", {
         email: email,
         password: password,
       })
@@ -62,7 +63,7 @@ function Signup() {
           {" "}
           SUBMIT{" "}
         </button>
-        <Link 
+        <Link
           style={{ textAlign: "center", display: "block", marginTop: "5px" }}
           to={"/login"}
         >

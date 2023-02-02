@@ -8,9 +8,10 @@ function Signin() {
   const [password, setPassword] = useState("");
   const [passhow, setPassShow] = useState(false);
   const handleSubmit = () => {
+    //http://localhost:8080/api/login
     console.log(email, password);
     axios
-      .post("http://localhost:8080/api/login", {
+      .post("https://fruit-app-rama.onrender.com/api/login", {
         email: email,
         password: password,
       })
@@ -24,7 +25,6 @@ function Signin() {
           alert("Password is wrong");
         }
         if (res.data.code === 200) {
-          // move to home
           navigate("/");
           localStorage.setItem("TOKEN", res.data.token);
           localStorage.setItem("EMAIL", res.data.email);
@@ -69,7 +69,7 @@ function Signin() {
           {" "}
           SUBMIT{" "}
         </button>
-        <Link 
+        <Link
           style={{ textAlign: "center", display: "block", marginTop: "5px" }}
           to={"/signup"}
         >

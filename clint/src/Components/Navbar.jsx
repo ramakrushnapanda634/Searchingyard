@@ -10,10 +10,10 @@ const Navbar = () => {
           SearchingYard
         </Link>
       </div>
-      
+
       <div>
         <Link className={styles.link} to="/signup">
-         Authentication
+          Authentication
         </Link>
       </div>
     </div>

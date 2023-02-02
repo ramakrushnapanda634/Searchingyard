@@ -8,10 +8,10 @@ const Products = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const navigate = useNavigate();
-
+  //http://localhost:8080/api/product
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/product")
+      .get("https://fruit-app-rama.onrender.com/api/product")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
