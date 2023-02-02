@@ -3,9 +3,10 @@
     justify-content: space-around;
     margin:auto;
     margin-top: 20px;
+    align-items:center;
     padding: 10px;
     width:100%;
-height:"400px";
+    height:50px;
     background: rgb(12, 170, 27);
     color: white;
     font-size: 20px;

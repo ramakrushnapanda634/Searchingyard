@@ -1,11 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./Navbar.module.css"
+import styles from "./Navbar.module.css";
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-   const [passhow, setPassShow] = useState(false);
+  const [passhow, setPassShow] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = () => {
     console.log(email, password);
@@ -44,7 +44,6 @@ function Signup() {
         <br /> <br />
         <span>Password</span>
         <div className={styles.two}>
-      
           <input
             onChange={(e) => {
               setPassword(e.target.value);
@@ -63,7 +62,7 @@ function Signup() {
           {" "}
           SUBMIT{" "}
         </button>
-        <Link
+        <Link 
           style={{ textAlign: "center", display: "block", marginTop: "5px" }}
           to={"/login"}
         >

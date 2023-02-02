@@ -6,7 +6,7 @@ function Signin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-const [passhow, setPassShow] = useState(false);
+  const [passhow, setPassShow] = useState(false);
   const handleSubmit = () => {
     console.log(email, password);
     axios
@@ -69,7 +69,7 @@ const [passhow, setPassShow] = useState(false);
           {" "}
           SUBMIT{" "}
         </button>
-        <Link
+        <Link 
           style={{ textAlign: "center", display: "block", marginTop: "5px" }}
           to={"/signup"}
         >

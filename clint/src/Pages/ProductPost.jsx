@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 import styles from "./Post.module.css";
 import { useNavigate } from "react-router-dom";
-const ProductPost= () => {
+const ProductPost = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [rating, setRating] = useState("");
   const navigate = useNavigate();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const product = {
@@ -32,7 +31,7 @@ const ProductPost= () => {
         console.log(err, "error");
       });
   };
- 
+
   return (
     <div className={styles.formContainer}>
       <form>
