@@ -12,7 +12,7 @@ function Signup() {
     //http://localhost:8080/api/signup
     console.log(email, password);
     axios
-      .post("http://localhost:8080/api/signup", {
+      .post("https://fruit-store-app-rama.onrender.com/api/signup", {
         email: email,
         password: password,
       })

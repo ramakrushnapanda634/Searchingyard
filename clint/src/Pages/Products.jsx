@@ -12,7 +12,7 @@ const Products = () => {
   //http://localhost:8080/api/product
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/product")
+      .get("https://fruit-store-app-rama.onrender.com/api/product")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);

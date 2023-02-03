@@ -24,4 +24,4 @@ Your app is ready to be deployed!</p>
 <p>First go to the login page then enter uemail and password after that you automatically redirect to home page.In the Home page you can search the frit by name  .Also you can filter in the same way by click on name ,filter by category,sort by price also .</p>
 <h3>Techlogy we used....🔧</h3>
 <p>React JS -Module css -Node JS -Express JS -Mongodb-Mongodb-Atlas</p>
-<h3>Deploy link:-https://fruit-app-rama-krushna-panda.netlify.app/</h3>
+<h3>Deploy link:-https://fruit-store-app-rama.netlify.app/</h3>
