@@ -20,29 +20,28 @@
 
 .formContainer form input {
     width: 40%;
-    height: 40px;
-    margin: 10px 0;
-    padding:0 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
+        height: 40px;
+        margin: 10px 0;
+        padding: 0 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
 }
 
 .formContainer form button {
     width: 40%;
-    height: 40px;
-    margin: 10px 0;
-    padding: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    background-color: #3014b0;
-    cursor: pointer;
+        height: 40px;
+        margin: 10px 0;
+        padding: 0 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        background-color: #a9779e;
+        cursor: pointer;
 }
 
 .formContainer form button:hover {
-    background-color: #8c0b70;
+    background-color: #d43cb3;
 }
 
 @media screen and (max-width: 768px) {

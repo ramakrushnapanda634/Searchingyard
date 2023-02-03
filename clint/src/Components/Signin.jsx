@@ -2,27 +2,32 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Signin() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passhow, setPassShow] = useState(false);
+
   const handleSubmit = () => {
     //http://localhost:8080/api/login
     console.log(email, password);
     axios
-      .post("https://fruit-app-rama.onrender.com/api/login", {
+      .post("http://localhost:8080/api/login", {
         email: email,
         password: password,
       })
       .then((res) => {
         console.log(res.data);
 
-        if (res.data.code === 500) {
-          alert("User Not Found");
-        }
-        if (res.data.code === 404) {
-          alert("Password is wrong");
+        if (email === "") {
+          toast.error("Enter Your Email");
+        } else if (!email.includes("@")) {
+          toast.error("Enter Valid Email");
+        } else if (password === "") {
+          toast.error("Enter Your Password");
+        } else if (password.length < 6) {
+          toast.error("password length minimum 6 character");
         }
         if (res.data.code === 200) {
           navigate("/");
@@ -47,6 +52,8 @@ function Signin() {
           value={email}
           className={styles.input}
           type="email"
+          placeholder="Enter Email"
+          required
         />{" "}
         <br /> <br />
         <span>Password</span>
@@ -57,12 +64,11 @@ function Signin() {
             }}
             value={password}
             className={styles.input}
-            type={!passhow ? "password" : "text"}
+            type="text"
             name="password"
+            placeholder="Enter Password"
+            required
           />
-          <p className="showpass" onClick={() => setPassShow(!passhow)}>
-            {!passhow ? "Show" : "Hide"}
-          </p>
         </div>
         <br /> <br />
         <button onClick={handleSubmit} className={styles.btns}>
@@ -70,12 +76,18 @@ function Signin() {
           SUBMIT{" "}
         </button>
         <Link
-          style={{ textAlign: "center", display: "block", marginTop: "5px" }}
+          style={{
+            textAlign: "center",
+            display: "block",
+            marginTop: "5px",
+            textDecoration: "none",
+          }}
           to={"/signup"}
         >
           {" "}
           SIGN UP{" "}
         </Link>
+        <ToastContainer position="top-center" />
       </div>
     </>
   );

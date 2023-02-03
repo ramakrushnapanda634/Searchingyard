@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
-const Navbar = () => {
+const Header = () => {
   return (
     <div className={styles.navbar}>
       <div>
@@ -11,13 +11,13 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div>
-        <Link className={styles.link} to="/signup">
-          Authentication
+      <div className={styles.user}>
+        <Link to="/signup" className={styles.link}>
+          Login/Signup
         </Link>
       </div>
     </div>
   );
 };
 
-export default Navbar;
+export default Header;
